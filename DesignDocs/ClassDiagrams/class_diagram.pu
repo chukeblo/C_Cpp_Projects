@@ -1,0 +1,111 @@
+@startuml class diagram
+title Class Diagram
+
+class StateManager {
+    - current_state_: StateBase*
+    + GetCurrentState(): StateBase*
+    + HandleEvent(EventData): void
+    + ChangeState(StateType): void
+}
+
+class StateBase {
+    + HandleEvent(EventData): void
+    + Initialize(): void
+    + Finalize(): void
+}
+
+class IdleState {
+
+}
+
+class InitializeState {
+
+}
+
+class ReadingState {
+
+}
+
+class AssemblingState {
+    - assembled_lines_: int
+    - token_interpretter_: TokenInterpretter*
+}
+
+class WritingState {
+
+}
+
+class ShowingResultState {
+
+}
+
+class FinalizeState {
+
+}
+
+class IOManagerBase {
+    HandleEvent(EventData): AppResult
+    GetInstance(IOType): IOManagerBase*
+    DestroyInstance(IOType): void
+}
+
+class FileIOManager {
+    - source_file_: FILE*
+    - binary_file_: FILE*
+}
+
+class ConsoleIOManager {
+
+}
+
+class EventHandler {
+    - event_queue_: Queue<EventData>
+    + Enqueue(EventData): void
+    + Dequeue(): EventData
+}
+
+class EventData {
+    - event_type_: EventType
+    - event_data_: ResultDataBase*
+    + GetEventType(): EventType
+    + GetEventData(): ResultDataBase*
+}
+
+class AppResult {
+    - result_data_type_: ResultDataType
+    - result_data_: ResultDataBase*
+    + GetResultDataType(): ResultDataType
+    + GetResultData(): ResultDataBase*
+}
+
+class ResultDataBase {
+    + GetResultData(): void*
+}
+
+StateManager --> StateBase
+StateManager --> EventHandler
+EventHandler --> EventData
+AppResult --> EventData
+EventData --> ResultDataBase
+StateBase --> ResultDataBase
+
+StateBase ^-- IdleState
+StateBase ^-- InitializeState
+StateBase ^-- ReadingState
+StateBase ^-- AssemblingState
+StateBase ^-- WritingState
+StateBase ^-- ShowingResultState
+StateBase ^-- FinalizeState
+
+IOManagerBase ^-- FileIOManager
+IOManagerBase ^-- ConsoleIOManager
+
+IdleState --> IOManagerBase
+InitializeState --> IOManagerBase
+ReadingState --> IOManagerBase
+WritingState --> IOManagerBase
+ShowingResultState --> IOManagerBase
+FinalizeState --> IOManagerBase
+
+
+@enduml

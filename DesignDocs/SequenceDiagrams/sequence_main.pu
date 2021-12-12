@@ -1,0 +1,25 @@
+@startuml sequence main
+title main
+
+autoactivate on
+
+participant main
+participant EventHandler
+participant StateManager
+participant StateBase
+
+main -> EventHandler : Initialize()
+return
+main -> StateManager : Initialize()
+return
+
+loop EventType == FinalizeCompleted
+    main -> EventHandler : Dequeue()
+    return EventData
+    note left : break if finalization is completed
+    main -> StateManager : HandleEvent(EventData)
+    StateManager -> StateBase : HandleEvent(EventData)
+    return
+    return
+end
+@enduml
