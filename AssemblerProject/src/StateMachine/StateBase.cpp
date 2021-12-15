@@ -1,12 +1,12 @@
-#include "StateBase.h"
+#include "include/StateBase.h"
 
-#include "AssemblingState.h"
-#include "FinalizeState.h"
-#include "IdleState.h"
-#include "InitializeState.h"
-#include "ReadingState.h"
-#include "ShowingResultState.h"
-#include "WritingState.h"
+#include "include/AssemblingState.h"
+#include "include/FinalizeState.h"
+#include "include/IdleState.h"
+#include "include/InitializeState.h"
+#include "include/ReadingState.h"
+#include "include/ShowingResultState.h"
+#include "include/WritingState.h"
 
 void StateBase::HandleEvent(EventData* data)
 {

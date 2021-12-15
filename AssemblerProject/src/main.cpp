@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "EventHandler.h"
-#include "StateManager.h"
+#include "Event/include/EventHandler.h"
+#include "StateMachine/include/StateManager.h"
 
 int main() {
     StateManager* state_manager = new StateManager();

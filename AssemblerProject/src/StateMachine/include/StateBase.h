@@ -1,7 +1,6 @@
 #pragma once
 
-#include "EventData.h"
-#include "EventHandler.h"
+#include "../../Event/include/EventHandler.h"
 #include "StateType.h"
 
 class StateBase

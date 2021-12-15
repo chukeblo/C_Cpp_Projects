@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "EventData.h"
+#include "../../Event/include/EventData.h"
 #include "StateBase.h"
 #include "StateType.h"
 

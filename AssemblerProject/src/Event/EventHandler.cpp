@@ -1,7 +1,7 @@
-#include "EventHandler.h"
+#include "include/EventHandler.h"
 
 #include <iostream>
-#include "Logger.h"
+#include "../Logger/include/Logger.h"
 
 EventHandler* EventHandler::GetInstance()
 {

@@ -2,9 +2,6 @@
 # この .gitignore ファイルは Microsoft(R) Visual Studio によって自動的に作成されました。
 ################################################################################
 
-/Assembler/.vs/Assembler/v16
-/Assembler/Debug
-/Assembler/Assembler/Debug
-/Assembler/x64/Debug
-/Assembler/Assembler/.vs/Assembler/v16
-/Assembler/Assembler/x64/Debug
+AssemblerProject/.vscode/
+AssemblerProject/build/
+*.code-workspace

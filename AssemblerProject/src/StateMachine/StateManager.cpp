@@ -1,7 +1,7 @@
-#include "StateManager.h"
+#include "include/StateManager.h"
 
 #include <iostream>
-#include "Logger.h"
+#include "../Logger/include/Logger.h"
 
 static const int StateNameStartIndex = 6;
 

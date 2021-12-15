@@ -1,6 +1,6 @@
-#include "IdleState.h"
+#include "include/IdleState.h"
 
-#include "IOManagerBase.h"
+#include "../IOManager/include/IOManagerBase.h"
 
 void IdleState::Initialize()
 {

@@ -1,7 +1,7 @@
-#include "ConsoleIOManager.h"
+#include "include/ConsoleIOManager.h"
 
 #include <iostream>
-#include "Logger.h"
+#include "../Logger/include/Logger.h"
 
 static const std::string AnswerYes = "y";
 static const std::string AnswerNo = "n";
