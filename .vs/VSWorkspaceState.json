@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Assembler",
+    "\\Assembler\\Assembler",
+    "\\Assembler\\x64",
+    "\\Assembler\\x64\\Debug"
   ],
-  "SelectedNode": "\\Assembler.sln",
+  "SelectedNode": "\\Assembler\\x64\\Debug\\Assembler.exe",
   "PreviewInSolutionExplorer": false
 }

@@ -1,10 +1,11 @@
 #pragma once
 enum class EventType {
-	Unknown,
+	Empty,
 	EnteredIdleState,
 	HasFileToAssemble,
 	NoFileLeftToAssemble,
 	EnteredInitializeState,
+	SourceFileNameEnrolled,
 	UserInputCompleted,
 	FinishedReading,
 	FinishedWriting,

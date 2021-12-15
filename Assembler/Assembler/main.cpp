@@ -11,7 +11,7 @@ int main() {
         EventData* data = EventHandler::GetInstance()->Dequeue();
 
         EventType type = data->GetEventType();
-        if (type == EventType::Unknown) {
+        if (type == EventType::Empty) {
             // do nothing if event queue is empty
             delete data;
             continue;
@@ -23,6 +23,7 @@ int main() {
         }
 
         state_manager->HandleEvent(data);
+        delete data;
     }
 
     delete state_manager;

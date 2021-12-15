@@ -1,6 +1,7 @@
 #include "InitializeState.h"
 
 #include "IOManagerBase.h"
+#include "Logger.h"
 
 void InitializeState::Initialize()
 {
@@ -9,9 +10,13 @@ void InitializeState::Initialize()
 
 void InitializeState::HandleEvent(EventData* data)
 {
+	Logger::LogDebug(ComponentName::InitializeState, MethodName::HandleEvent,
+		"EventType = " + std::to_string((int)(data->GetEventType())));
+
 	switch (data->GetEventType())
 	{
 	case EventType::EnteredInitializeState:
+	case EventType::SourceFileNameEnrolled:
 		IOManagerBase::GetInstance(IOType::Console)->HandleEvent(data);
 		break;
 	default:

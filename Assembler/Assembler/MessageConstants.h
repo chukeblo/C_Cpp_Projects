@@ -42,4 +42,7 @@ namespace MethodName {
 	// event
 	const string Enqueue = "Enqueue";
 	const string Dequeue = "Dequeue";
+	// console io manager
+	const string AskForSourceFileName = "AskForSourceFileName";
+	const string AskForBinaryFileName = "AskForBinaryFileName";
 }

@@ -1,6 +1,7 @@
 #include "EventHandler.h"
 
 #include <iostream>
+#include "Logger.h"
 
 EventHandler* EventHandler::GetInstance()
 {
@@ -13,17 +14,19 @@ EventHandler* EventHandler::GetInstance()
 
 void EventHandler::Enqueue(EventData* event_data)
 {
-	std::cout << "EventHandler::Enqueue() EventType=" << (int)(event_data->GetEventType()) << std::endl;
+	Logger::LogDebug(ComponentName::EventHandler, MethodName::Enqueue,
+		"EventType = " + std::to_string((int)(event_data->GetEventType())));
 	event_queue_.push(event_data);
 }
 
 EventData* EventHandler::Dequeue()
 {
 	if (event_queue_.empty()) {
-		return new EventData(EventType::Unknown);
+		return new EventData(EventType::Empty);
 	}
 	EventData* data = event_queue_.front();
-	printf("EventHandler::Dequeue() EventType=%d\n", data->GetEventType());
+	Logger::LogDebug(ComponentName::EventHandler, MethodName::Dequeue,
+		"EventType = " + std::to_string((int)(data->GetEventType())));
 	event_queue_.pop();
 	return data;
 }

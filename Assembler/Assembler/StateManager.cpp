@@ -18,11 +18,12 @@ void StateManager::HandleEvent(EventData* data)
 			"current state is null!");
 		return;
 	}
+	// TODO: need to modify state change operation
 	if (data->GetEventType() == EventType::StateChangeRequested) {
 		ChangeState((StateBase*)data->GetResultData());
+		return;
 	}
 	current_state_->HandleEvent(data);
-	
 }
 
 std::string StateManager::ExtractStateName(const char* original_typename)
