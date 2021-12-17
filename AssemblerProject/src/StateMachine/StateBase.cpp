@@ -13,7 +13,7 @@ void StateBase::HandleEvent(EventData* data)
 	switch (data->GetEventType()) {
 	case EventType::ErrorOccurred:
 		EventHandler::GetInstance()->Enqueue(
-			new EventData(data->GetEventType(), data->GetResultData()));
+			new EventData(data));
 		break;
 	default:
 		break;

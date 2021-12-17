@@ -9,6 +9,7 @@ private:
 	void *result_data_;
 
 public:
+	EventData(EventData *data);
 	EventData(EventType type);
 	EventData(EventType type, void *data);
 	EventType GetEventType();

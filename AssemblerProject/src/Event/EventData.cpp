@@ -1,10 +1,18 @@
 #include "include/EventData.h"
 
-EventData::EventData(EventType type) : event_type_(type), result_data_(nullptr)
+EventData::EventData(EventData *data)
+	: event_type_(data->GetEventType()),
+	  result_data_(data->GetResultData())
 {
 }
 
-EventData::EventData(EventType type, void *data) : event_type_(type), result_data_(data)
+EventData::EventData(EventType type)
+	: event_type_(type), result_data_(nullptr)
+{
+}
+
+EventData::EventData(EventType type, void *data)
+	: event_type_(type), result_data_(data)
 {
 }
 
