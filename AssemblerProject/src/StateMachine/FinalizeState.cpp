@@ -1,6 +1,6 @@
 #include "include/FinalizeState.h"
 
-void FinalizeState::HandleEvent(EventData* data)
+void FinalizeState::HandleEvent(EventData *data)
 {
 	switch (data->GetEventType())
 	{

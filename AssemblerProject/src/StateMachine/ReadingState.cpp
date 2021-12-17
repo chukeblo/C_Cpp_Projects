@@ -1,6 +1,6 @@
 #include "include/ReadingState.h"
 
-void ReadingState::HandleEvent(EventData* data)
+void ReadingState::HandleEvent(EventData *data)
 {
 	switch (data->GetEventType())
 	{

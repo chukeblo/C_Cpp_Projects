@@ -1,9 +1,10 @@
 #pragma once
 
-enum class ResultCode {
+enum class ResultCode
+{
 	Unknown,
 	Success,
-	InvalidArgumentNum,
+	ExceededMaxRetryCounts,
 	SourceFileOpenFailed,
 	SourceFileCloseFailed,
 	BinaryFileOpenFailed,

@@ -9,7 +9,6 @@ public:
 	virtual ~StateBase() {}
 	virtual void Initialize() {}
 	virtual void Finalize() {}
-	virtual void HandleEvent(EventData* data);
-	static StateBase* GetInstance(StateType type);
+	virtual void HandleEvent(EventData *data);
+	static StateBase *GetInstance(StateType type);
 };
-

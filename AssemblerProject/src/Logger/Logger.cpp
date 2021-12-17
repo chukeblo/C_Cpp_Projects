@@ -1,29 +1,26 @@
 #include "include/Logger.h"
 
-using namespace std;
-using namespace LogLevel;
-
-void Logger::LogInfo(string component_name, string method_name, string message)
+void Logger::LogInfo(std::string component_name, std::string method_name, std::string message)
 {
-	Log(Info, component_name, method_name, message);
+	Log(LogLevel::Info, component_name, method_name, message);
 }
 
-void Logger::LogDebug(string component_name, string method_name, string message)
+void Logger::LogDebug(std::string component_name, std::string method_name, std::string message)
 {
-	Log(Debug, component_name, method_name, message);
+	Log(LogLevel::Debug, component_name, method_name, message);
 }
 
-void Logger::LogWarning(string component_name, string method_name, string message)
+void Logger::LogWarning(std::string component_name, std::string method_name, std::string message)
 {
-	Log(Warning, component_name, method_name, message);
+	Log(LogLevel::Warning, component_name, method_name, message);
 }
 
-void Logger::LogError(string component_name, string method_name, string message)
+void Logger::LogError(std::string component_name, std::string method_name, std::string message)
 {
-	Log(Error, component_name, method_name, message);
+	Log(LogLevel::Error, component_name, method_name, message);
 }
 
-void Logger::Log(string log_level, string component_name, string method_name, string message)
+void Logger::Log(std::string log_level, std::string component_name, std::string method_name, std::string message)
 {
 	cout << "[" + log_level + "] " + component_name + "::" + method_name + "() " + message << endl;
 }

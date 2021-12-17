@@ -1,6 +1,7 @@
 #pragma once
 
-enum class StateType {
+enum class StateType
+{
 	Idle,
 	Initialize,
 	Reading,

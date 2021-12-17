@@ -3,7 +3,7 @@
 #include <iostream>
 #include "../Logger/include/Logger.h"
 
-static const int StateNameStartIndex = 6;
+static const int StateNameStartIndex = 2;
 
 void StateManager::Initialize()
 {
@@ -11,32 +11,36 @@ void StateManager::Initialize()
 	current_state_->Initialize();
 }
 
-void StateManager::HandleEvent(EventData* data)
+void StateManager::HandleEvent(EventData *data)
 {
-	if (!current_state_) {
+	if (!current_state_)
+	{
 		Logger::LogError(ComponentName::StateManager, MethodName::HandleEvent,
-			"current state is null!");
+						 "current state is null!");
 		return;
 	}
 	// TODO: need to modify state change operation
-	if (data->GetEventType() == EventType::StateChangeRequested) {
-		ChangeState((StateBase*)data->GetResultData());
+	if (data->GetEventType() == EventType::StateChangeRequested)
+	{
+		ChangeState((StateBase *)data->GetResultData());
 		return;
 	}
 	current_state_->HandleEvent(data);
 }
 
-std::string StateManager::ExtractStateName(const char* original_typename)
+std::string StateManager::ExtractStateName(const char *original_typename)
 {
-	return std::string(original_typename).substr(StateNameStartIndex);
+	std::string original_state_name_string = std::string(original_typename);
+	return original_state_name_string.substr(StateNameStartIndex);
 }
 
-void StateManager::ChangeState(StateBase* next_state)
+void StateManager::ChangeState(StateBase *next_state)
 {
+	// TODO: fix unstable logging of state name
 	std::string current_state_name = ExtractStateName(typeid(*current_state_).name());
 	std::string next_state_name = ExtractStateName(typeid(*next_state).name());
 	Logger::LogInfo(ComponentName::StateManager, MethodName::ChangeState,
-		"from " + current_state_name + " to " + next_state_name);
+					"from " + current_state_name + " to " + next_state_name);
 
 	current_state_->Finalize();
 	delete current_state_;

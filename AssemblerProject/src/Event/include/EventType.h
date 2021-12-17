@@ -1,5 +1,7 @@
 #pragma once
-enum class EventType {
+
+enum class EventType
+{
 	Empty,
 	EnteredIdleState,
 	HasFileToAssemble,
@@ -7,6 +9,7 @@ enum class EventType {
 	EnteredInitializeState,
 	SourceFileNameEnrolled,
 	UserInputCompleted,
+	BothFilesConfirmedAvailable,
 	FinishedReading,
 	FinishedWriting,
 	ShowedAssembleResult,

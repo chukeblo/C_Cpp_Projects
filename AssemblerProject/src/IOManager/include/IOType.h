@@ -1,5 +1,7 @@
 #pragma once
-enum class IOType {
+
+enum class IOType
+{
 	Console,
 	File
 };

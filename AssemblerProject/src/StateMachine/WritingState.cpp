@@ -1,6 +1,6 @@
 #include "include/WritingState.h"
 
-void WritingState::HandleEvent(EventData* data)
+void WritingState::HandleEvent(EventData *data)
 {
 	switch (data->GetEventType())
 	{

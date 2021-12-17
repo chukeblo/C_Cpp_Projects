@@ -1,6 +1,6 @@
 #include "include/AssemblingState.h"
 
-void AssemblingState::HandleEvent(EventData* data)
+void AssemblingState::HandleEvent(EventData *data)
 {
 	switch (data->GetEventType())
 	{

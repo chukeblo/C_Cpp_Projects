@@ -7,7 +7,7 @@ void IdleState::Initialize()
 	EventHandler::GetInstance()->Enqueue(new EventData(EventType::EnteredIdleState));
 }
 
-void IdleState::HandleEvent(EventData* data)
+void IdleState::HandleEvent(EventData *data)
 {
 	switch (data->GetEventType())
 	{
@@ -15,12 +15,14 @@ void IdleState::HandleEvent(EventData* data)
 		IOManagerBase::GetInstance(IOType::Console)->HandleEvent(data);
 		break;
 	case EventType::HasFileToAssemble:
-		EventHandler::GetInstance()->Enqueue(new EventData(EventType::StateChangeRequested,
-			(void*)StateBase::GetInstance(StateType::Initialize)));
+		EventHandler::GetInstance()->Enqueue(
+			new EventData(EventType::StateChangeRequested,
+						  (void *)StateBase::GetInstance(StateType::Initialize)));
 		break;
 	case EventType::NoFileLeftToAssemble:
-		EventHandler::GetInstance()->Enqueue(new EventData(EventType::StateChangeRequested,
-			(void*)StateBase::GetInstance(StateType::Finalize)));
+		EventHandler::GetInstance()->Enqueue(
+			new EventData(EventType::StateChangeRequested,
+						  (void *)StateBase::GetInstance(StateType::Finalize)));
 		break;
 	default:
 		StateBase::HandleEvent(data);

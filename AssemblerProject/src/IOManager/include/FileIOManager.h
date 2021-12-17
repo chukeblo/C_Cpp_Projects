@@ -1,12 +1,13 @@
 #pragma once
 
+#include <fstream>
 #include "IOManagerBase.h"
 
 class FileIOManager : public IOManagerBase
 {
 public:
-	FileIOManager(){}
-	~FileIOManager(){}
-	virtual void HandleEvent(EventData* data);
-};
+	virtual void HandleEvent(EventData *data);
 
+private:
+	void CheckFilesAvailable();
+};

@@ -8,10 +8,10 @@ void InitializeState::Initialize()
 	EventHandler::GetInstance()->Enqueue(new EventData(EventType::EnteredInitializeState));
 }
 
-void InitializeState::HandleEvent(EventData* data)
+void InitializeState::HandleEvent(EventData *data)
 {
 	Logger::LogDebug(ComponentName::InitializeState, MethodName::HandleEvent,
-		"EventType = " + std::to_string((int)(data->GetEventType())));
+					 "EventType = " + std::to_string((int)(data->GetEventType())));
 
 	switch (data->GetEventType())
 	{
@@ -19,6 +19,13 @@ void InitializeState::HandleEvent(EventData* data)
 	case EventType::SourceFileNameEnrolled:
 		IOManagerBase::GetInstance(IOType::Console)->HandleEvent(data);
 		break;
+	case EventType::UserInputCompleted:
+		IOManagerBase::GetInstance(IOType::File)->HandleEvent(data);
+		break;
+	case EventType::BothFilesConfirmedAvailable:
+		EventHandler::GetInstance()->Enqueue(
+			new EventData(EventType::StateChangeRequested,
+						  (void *)StateBase::GetInstance(StateType::Reading)));
 	default:
 		StateBase::HandleEvent(data);
 		break;

@@ -11,7 +11,7 @@ public:
 	static void LogDebug(std::string component_name, std::string method_name, std::string message);
 	static void LogWarning(std::string component_name, std::string method_name, std::string message);
 	static void LogError(std::string component_name, std::string method_name, std::string message);
+
 private:
 	static void Log(std::string log_level, std::string component_name, std::string method_name, std::string message);
 };
-

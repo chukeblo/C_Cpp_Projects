@@ -5,6 +5,5 @@
 class WritingState : public StateBase
 {
 public:
-    virtual void HandleEvent(EventData* data);
+    virtual void HandleEvent(EventData *data);
 };
-
